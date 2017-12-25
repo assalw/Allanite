@@ -6,7 +6,7 @@
 
 #include <string>
 
-#include "Allanite.h"
+#include "../include/Allanite.h"
 
 const std::string ENGINE_NAME = "Allanite";
 const int WIDTH = 1024;

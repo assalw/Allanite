@@ -6,7 +6,7 @@
 #include <string>
 #include <stdexcept>
 
-#include "Render.h"
+#include "../include/Render.h"
 
 
 Render::Render() : windowOpened()

@@ -2,7 +2,7 @@
 // Created by Wadie Assal on 25-12-17.
 //
 
-#include "Allanite.h"
+#include "../include/Allanite.h"
 
 Allanite::Allanite(std::string engineName, int width, int height) : gameRunning(), gameInitialized()
 {
