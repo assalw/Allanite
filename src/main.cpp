@@ -1,15 +1,17 @@
 /* 
  * Author:    Wadie Assal: 
- * Project:   Amber: Scalable Video Wall
+ * Project:   Allanite: A ᵗᶦⁿʸ game engine
  * 
  */
 
-#include <stdio.h>
-#include <stdbool.h>
 #include <SDL2/SDL.h>
+#include <memory>
+#include "Render.h"
 
-#define WIDTH 640
-#define HEIGHT 480
+#define WIDTH 1280
+#define HEIGHT 720
+
+std::shared_ptr<Render> render;
 
 int main(int argc, char *argv[]) {
     SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Starting Allanite");
@@ -24,6 +26,10 @@ int main(int argc, char *argv[]) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
+    // Initialize renderer and create window
+    render = std::shared_ptr<Render>();
+    render->createWindow();
 
     // Initialize timer
     unsigned int lastTime = 0, currentTime;
@@ -44,7 +50,7 @@ int main(int argc, char *argv[]) {
         // Run at 50 FPS
         currentTime = SDL_GetTicks();
         if (currentTime > lastTime + 20) {
-            // TODO: Render
+            render->render();
             lastTime = currentTime;
         }
 
@@ -56,6 +62,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Cleanup and exit
+    render->closeWindow();
     SDL_Quit();
     exit(0);
 }
