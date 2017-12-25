@@ -106,12 +106,7 @@ void Allanite::closeGame()
     {
         SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, "Stopping Allanite");
 
-        if (render)
-        {
-            //render->closeWindow();
-            //render = nullptr;
-        }
-
+        if (render) render = nullptr;
         SDL_Quit();
     }
 }
