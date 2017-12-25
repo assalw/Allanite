@@ -14,7 +14,8 @@ const int HEIGHT = 600;
 
 std::shared_ptr<Allanite> allanite;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 
     allanite = std::make_shared<Allanite>(ENGINE_NAME, WIDTH, HEIGHT);
     allanite->initGame();

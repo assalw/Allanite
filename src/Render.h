@@ -7,7 +7,8 @@
 
 #include <SDL2/SDL.h>
 
-class Render {
+class Render
+{
 
 private:
     SDL_GLContext glContext;
@@ -15,9 +16,13 @@ private:
 
 public:
     Render();
+
     void createWindow(std::string name, int width, int height);
+
     void renderWindow();
+
     void closeWindow();
+
     ~Render();
 
 };

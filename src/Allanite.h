@@ -9,7 +9,8 @@
 
 #include "Render.h"
 
-class Allanite {
+class Allanite
+{
 
 private:
     std::string engineName;
@@ -24,10 +25,15 @@ private:
 
 public:
     Allanite(std::string engineName, int width, int height);
+
     void initGame();
+
     void startGameLoop();
+
     void stopGameLoop();
+
     void closeGame();
+
     ~Allanite();
 };
 
