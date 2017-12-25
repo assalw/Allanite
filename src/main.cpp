@@ -4,12 +4,18 @@
  * 
  */
 
+#include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+
 #include <memory>
+#include <string>
+
 #include "Render.h"
 
-#define WIDTH 1280
-#define HEIGHT 720
+const std::string ENGINE_NAME = "Allanite";
+const int WIDTH = 800;
+const int HEIGHT = 600;
 
 std::shared_ptr<Render> render;
 
@@ -22,14 +28,9 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    // OpenGL version 4
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-
     // Initialize renderer and create window
-    render = std::shared_ptr<Render>();
-    render->createWindow();
+    render = std::make_shared<Render>();
+    render->createWindow(ENGINE_NAME.c_str(), WIDTH, HEIGHT);
 
     // Initialize timer
     unsigned int lastTime = 0, currentTime;
@@ -50,7 +51,7 @@ int main(int argc, char *argv[]) {
         // Run at 50 FPS
         currentTime = SDL_GetTicks();
         if (currentTime > lastTime + 20) {
-            render->render();
+            render->renderWindow();
             lastTime = currentTime;
         }
 
