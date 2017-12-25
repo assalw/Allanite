@@ -4,7 +4,6 @@
 
 #include <GL/glew.h>
 #include <string>
-#include <stdexcept>
 
 #include "../include/Render.h"
 
