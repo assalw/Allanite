@@ -6,6 +6,7 @@
 #define ALLANITE_ALLANITE_H
 
 #include <string>
+#include <memory>
 
 #include "Render.h"
 
